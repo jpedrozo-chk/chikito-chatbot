@@ -491,9 +491,9 @@ async function callClaude(question, liveData) {
     userContent = `User question: ${question}\n\nLive data retrieved from CHK systems:\n${JSON.stringify(liveData, null, 2)}\n\nPlease answer the user's question using this live data. Format it clearly. Include any disclaimers from the data.`;
   }
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch('https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1200, system: systemPrompt, messages: [{ role: 'user', content: userContent }] })
     });
     const data = await res.json();

@@ -560,10 +560,10 @@ async function sendMessage() {
   const extractedDate = extractDate(q);
   console.log('[CHiKito] Intent:', intent, '| Date extracted:', extractedDate, '| Query:', q);
   let liveData = null;
-  if (intent !== 'general') {
-    liveData = await fetchLiveData(intent, q);
-    console.log('[CHiKito] Live data result:', liveData);
-  }
+// Live data fetch disabled — Sheets permission issue
+// if (intent !== 'general') {
+//   liveData = await fetchLiveData(intent, q);
+// }
 
   // 3. Send to Claude (with live data if available)
   const reply = await callClaude(q, liveData);

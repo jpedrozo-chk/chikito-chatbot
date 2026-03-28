@@ -493,7 +493,7 @@ function matchQA(q) {
 async function callClaude(question, liveData) {
   let systemPrompt = CHK_CONTEXT;
   let userContent = question;
-  if (liveData && !liveData.error) {
+  if (liveData) {
     userContent = `User question: ${question}\n\nLive data retrieved from CHK systems:\n${JSON.stringify(liveData, null, 2)}\n\nPlease answer the user's question using this live data. Format it clearly. Include any disclaimers from the data.`;
   }
   try {

@@ -570,7 +570,7 @@ async function sendMessage() {
   hideTyping();
 
   let srcLabel, isWarn = false;
-  if (liveData && !liveData.error) {
+  if (liveData) {
     if (intent === 'vehicle') { srcLabel = '⚠️ Live data + OASD confirmation required'; isWarn = true; }
     else srcLabel = '📊 Live CHK data + AI';
   } else {
